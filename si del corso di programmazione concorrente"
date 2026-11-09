@@ -1,0 +1,477 @@
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..89c60a5[m
+[1m--- /dev/null[m
+[1m+++ b/.gitignore[m
+[36m@@ -0,0 +1,12 @@[m
+[32m+[m[32m/tmp/[m
+[32m+[m[32m__pycache__/[m
+[32m+[m[32m*.pyc[m
+[32m+[m[32m*.o[m
+[32m+[m[32ma.out[m
+[32m+[m[32m*.log[m
+[32m+[m[32m*.tmp[m
+[32m+[m[32m*.swp[m
+[32m+[m[32m*~[m
+[32m+[m[32m.env[m
+[32m+[m[32m.env.*[m
+[32m+[m[32m!.env.example[m
+[1mdiff --git a/README.md b/README.md[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f1b7f17[m
+[1m--- /dev/null[m
+[1m+++ b/README.md[m
+[36m@@ -0,0 +1,10 @@[m
+[32m+[m[32m# Programmazione concorrente[m
+[32m+[m
+[32m+[m[32mEsercitazioni di programmazione concorrente di Andrew Romero, classe 4C informatica[m
+[32m+[m
+[32m+[m[32mQuesto repository contiene i programmi, gli esercizi e le risorse sui processi Linux.[m
+[32m+[m[32mIl programma dell'esercizio Git e GitHub è es01b-hello-world/hello.py.[m
+[32m+[m
+[32m+[m[32mSu Web4Student lavoro nella cartella personale ~/processi.[m
+[32m+[m[32mPer eseguire Hello World uso: python3 es01b-hello-world/hello.py[m
+[32m+[m[32mLa sottocartella tmp contiene file temporanei e viene esclusa da Git.[m
+[1mdiff --git a/es01b-hello-world/hello. b/es01b-hello-world/hello.[m
+[1mnew file mode 100644[m
+[1mindex 0000000..11db651[m
+[1m--- /dev/null[m
+[1m+++ b/es01b-hello-world/hello.[m
+[36m@@ -0,0 +1,13 @@[m
+[32m+[m
+[32m+[m[32m#!/usr/bin/env python3[m
+[32m+[m[32m"""Hello World: dal programma Python al processo in esecuzione."""[m
+[32m+[m[32mimport os[m
+[32m+[m
+[32m+[m[32mnome = 'Andrew'[m
+[32m+[m[32mmessaggio = "Hello World dell'esercizio b."[m
+[32m+[m
+[32m+[m[32mprint('Hello, World!')[m
+[32m+[m[32mprint(f'Studente: {nome}')[m
+[32m+[m[32mprint(messaggio)[m
+[32m+[m[32m# Il sistema operativo assegna un PID al processo che esegue il programma.[m
+[32m+[m[32mprint(f'PID del processo: {os.getpid()}')[m
+[1mdiff --git a/es01b-hello-world/hello.py b/es01b-hello-world/hello.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..7c7f294[m
+[1m--- /dev/null[m
+[1m+++ b/es01b-hello-world/hello.py[m
+[36m@@ -0,0 +1,12 @@[m
+[32m+[m[32m#!/usr/bin/env python3[m
+[32m+[m[32m"""Hello World: dal programma Python al processo in esecuzione."""[m
+[32m+[m[32mimport os[m
+[32m+[m
+[32m+[m[32mnome = 'Andrew'[m
+[32m+[m[32mmessaggio = "Hello World dell'esercizio b."[m
+[32m+[m
+[32m+[m[32mprint('Hello, World!')[m
+[32m+[m[32mprint(f'Studente: {nome}')[m
+[32m+[m[32mprint(messaggio)[m
+[32m+[m[32m# Il sistema operativo assegna un PID al processo che esegue il programma.[m
+[32m+[m[32mprint(f'PID del processo: {os.getpid()}')[m
+[1mdiff --git a/pyfork01.py b/pyfork01.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..1510cfa[m
+[1m--- /dev/null[m
+[1m+++ b/pyfork01.py[m
+[36m@@ -0,0 +1,8 @@[m
+[32m+[m[32mimport os[m
+[32m+[m
+[32m+[m[32mdef main():[m
+[32m+[m[32m    print(f"\nAvvio del processo con pid={os.getpid()}")[m
+[32m+[m
+[32m+[m[32mif __name__ == "__main__":[m
+[32m+[m[32m    main()[m
+[32m+[m
+[1mdiff --git a/pyfork01.py.save b/pyfork01.py.save[m
+[1mnew file mode 100644[m
+[1mindex 0000000..1510cfa[m
+[1m--- /dev/null[m
+[1m+++ b/pyfork01.py.save[m
+[36m@@ -0,0 +1,8 @@[m
+[32m+[m[32mimport os[m
+[32m+[m
+[32m+[m[32mdef main():[m
+[32m+[m[32m    print(f"\nAvvio del processo con pid={os.getpid()}")[m
+[32m+[m
+[32m+[m[32mif __name__ == "__main__":[m
+[32m+[m[32m    main()[m
+[32m+[m
+[1mdiff --git a/pyfork02.py b/pyfork02.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6a42468[m
+[1m--- /dev/null[m
+[1m+++ b/pyfork02.py[m
+[36m@@ -0,0 +1,9 @@[m
+[32m+[m[32mimport os[m
+[32m+[m
+[32m+[m
+[32m+[m[32mprint(f"\nAvvio del processo con pid={os.getpid()}")[m
+[32m+[m[32mwhile True:[m
+[32m+[m[32m    pass  # Loop infinito[m
+[32m+[m
+[32m+[m[32mprint(f"\nQuesto codice non verrà mai eseguito, perché il processo è in loop infinito")[m
+[32m+[m
+[1mdiff --git a/pyfork03.py b/pyfork03.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..24b85df[m
+[1m--- /dev/null[m
+[1m+++ b/pyfork03.py[m
+[36m@@ -0,0 +1,21 @@[m
+[32m+[m[32mimport os[m
+[32m+[m
+[32m+[m[32mdef main():[m
+[32m+[m[32m    print(f"Codice eseguito dal padre! (pid: {os.getpid()})")[m
+[32m+[m[32m    pid = os.fork()[m
+[32m+[m
+[32m+[m[32m    if pid == 0:[m
+[32m+[m[32m        # Codice del figlio[m
+[32m+[m[32m        print(f"Sono il figlio! (pid: {os.getpid()})")[m
+[32m+[m[32m    elif pid > 0:[m
+[32m+[m[32m        # Codice del padre[m
+[32m+[m[32m        print(f"Sono il padre! (pid: {os.getpid()})")[m
+[32m+[m[32m    else:[m
+[32m+[m[32m        # Errore nella creazione del processo figlio[m
+[32m+[m[32m        print("Creazione del processo figlio fallita!")[m
+[32m+[m
+[32m+[m[32m    print(f"Codice comune a padre e figlio! (pid: {os.getpid()})")[m
+[32m+[m
+[32m+[m[32mif __name__ == "__main__":[m
+[32m+[m[32m    main()[m
+[32m+[m
+[1mdiff --git a/pyfork04.py b/pyfork04.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..673a51d[m
+[1m--- /dev/null[m
+[1m+++ b/pyfork04.py[m
+[36m@@ -0,0 +1,25 @@[m
+[32m+[m[32mimport os[m
+[32m+[m[32m# Calcola l'area e il perimetro di un rettangolo[m
+[32m+[m[32m# il processo padre calcola l'area, il processo figlio calcola il perimetro[m
+[32m+[m[32mbase = 5[m
+[32m+[m[32maltezza = 10[m
+[32m+[m[32mprint(f"Codice eseguito dal padre! (pid: {os.getpid()})")[m
+[32m+[m[32m# Creazione del processo figlio, la variabile pid conterrà[m[41m [m
+[32m+[m[32m# il valore 0 nel processo figlio e il pid del figlio nel processo padre[m
+[32m+[m[32mpid = os.fork()[m
+[32m+[m[32mif pid == 0:[m
+[32m+[m[32m    # Codice del figlio, calcolo del perimetro[m
+[32m+[m[32m    perimetro = 2 * (base + altezza)[m
+[32m+[m[32m    print(f"Il perimetro del rettangolo è: {perimetro}")[m
+[32m+[m[32m    print(f"Sono il figlio! (pid: {os.getpid()})")[m
+[32m+[m[32melif pid > 0:[m
+[32m+[m[32m    # Codice del padre[m
+[32m+[m[32m    area = base * altezza[m
+[32m+[m[32m    print(f"L'area del rettangolo è: {area}")[m
+[32m+[m[32m    print(f"Sono il padre! (pid: {os.getpid()})")[m
+[32m+[m[32melse: # pid < 0[m
+[32m+[m[32m    # Errore nella creazione del processo figlio[m
+[32m+[m[32m    print("Creazione del processo figlio fallita!")[m
+[32m+[m[32m# Codice comune a padre e figlio[m
+[32m+[m[32mprint(f"Codice comune a padre e figlio! (pid: {os.getpid()})")[m
+[32m+[m
+[1mdiff --git a/pyfork05.py b/pyfork05.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f067263[m
+[1m--- /dev/null[m
+[1m+++ b/pyfork05.py[m
+[36m@@ -0,0 +1,98 @@[m
+[32m+[m[32mimport os[m
+[32m+[m[32mimport sys[m
+[32m+[m[32mimport time[m
+[32m+[m
+[32m+[m[32mdef esegui_lampeggio(colore, intervallo_secondi):[m
+[32m+[m[32m    """[m
+[32m+[m[32m    Funzione di supporto per simulare il lampeggio (Messaggio a schermo e logica temporale)[m
+[32m+[m[32m    """[m
+[32m+[m[32m    for i in range(10):[m
+[32m+[m[32m        # NOTA PER GLI STUDENTI: Qui inserirete anche il comando fisico per il PIN (es. tramite RPi.GPIO o gpiozero)[m
+[32m+[m[32m        print(f"[FIGLIO] Lampeggio {i + 1}: LED {colore} ACCESO")[m
+[32m+[m[32m        time.sleep(intervallo_secondi)[m
+[32m+[m[41m        [m
+[32m+[m[32m        print(f"[FIGLIO] Lampeggio {i + 1}: LED {colore} SPENTO")[m
+[32m+[m[32m        time.sleep(intervallo_secondi)[m
+[32m+[m
+[32m+[m[32m# =====================================================================[m
+[32m+[m[32m# Main Program[m
+[32m+[m[32m# =====================================================================[m
+[32m+[m
+[32m+[m[32mprint("=== Pannello di Controllo LED tramite Processi ===")[m
+[32m+[m[32mprint("Comandi disponibili:")[m
+[32m+[m[32mprint("  v -> 10 lampeggi LED VERDE  (0.3s)")[m
+[32m+[m[32mprint("  r -> 10 lampeggi LED ROSSO  (0.7s)")[m
+[32m+[m[32mprint("  g -> 10 lampeggi LED GIALLO (1.2s)")[m
+[32m+[m[32mprint("  q -> Esci dal programma\n")[m
+[32m+[m
+[32m+[m[32mwhile True:[m
+[32m+[m[32m    try:[m
+[32m+[m[32m        # Legge il comando saltando eventuali spazi o invii residui[m
+[32m+[m[32m        input_utente = input("Inserisci un comando: ").strip()[m
+[32m+[m[32m    except (EOFError, KeyboardInterrupt):[m
+[32m+[m[32m        print("\nChiusura forzata del programma.")[m
+[32m+[m[32m        break[m
+[32m+[m
+[32m+[m[32m    if not input_utente:[m
+[32m+[m[32m        continue[m
+[32m+[m
+[32m+[m[32m    comando = input_utente[m
+[32m+[m
+[32m+[m[32m    # Gestione del comando di chiusura prima di toccare i processi[m
+[32m+[m[32m    if comando == 'q' or comando == 'Q':[m
+[32m+[m[32m        print("Chiusura del programma principale. Arrivederci!")[m
+[32m+[m[32m        break[m
+[32m+[m
+[32m+[m[32m    # Impostazione della variabile in base al comando[m
+[32m+[m[32m    if comando == 'v' or comando == 'V':[m
+[32m+[m[32m        led = 1[m
+[32m+[m[32m        colore_led = "VERDE"[m
+[32m+[m[32m        intervallo = 0.3[m
+[32m+[m[32m    elif comando == 'r' or comando == 'R':[m
+[32m+[m[32m        led = 2[m
+[32m+[m[32m        colore_led = "ROSSO"[m
+[32m+[m[32m        intervallo = 0.7[m
+[32m+[m[32m    elif comando == 'g' or comando == 'G':[m
+[32m+[m[32m        led = 3[m
+[32m+[m[32m        colore_led = "GIALLO"[m
+[32m+[m[32m        intervallo = 1.2[m
+[32m+[m[32m    else:[m
+[32m+[m[32m        print("Comando non valido!")[m
+[32m+[m[32m        continue  # Torna all'inizio del ciclo[m
+[32m+[m
+[32m+[m[32m    # =====================================================================[m
+[32m+[m[32m    # STRUTTURA DELLA FORK - IMPLEMENTATA IN PYTHON[m
+[32m+[m[32m    # =====================================================================[m
+[32m+[m[32m    try:[m
+[32m+[m[32m        # 1 e 2. Chiamata alla funzione fork() per sdoppiare il processo attuale[m
+[32m+[m[32m        pid = os.fork()[m
+[32m+[m[32m    except OSError:[m
+[32m+[m[32m        # a) Errore di sdoppiamento[m
+[32m+[m[32m        print("[ERRORE] Generazione del processo figlio fallita")[m
+[32m+[m[32m        continue[m
+[32m+[m
+[32m+[m[32m    if pid == 0:[m
+[32m+[m[32m        # b) Codice eseguito esclusivamente dal processo FIGLIO[m
+[32m+[m[32m        if led == 1:[m
+[32m+[m[32m            esegui_lampeggio(colore_led, intervallo)[m
+[32m+[m[32m        elif led == 2:[m
+[32m+[m[32m            esegui_lampeggio(colore_led, intervallo)[m
+[32m+[m[32m        elif led == 3:[m
+[32m+[m[32m            esegui_lampeggio(colore_led, intervallo)[m
+[32m+[m[32m        else:[m
+[32m+[m[32m            print(f"[FIGLIO] Errore: LED non riconosciuto.")[m
+[32m+[m[32m            sys.exit(1)[m
+[32m+[m
+[32m+[m[32m        # IMPORTANTE: Termina il processo figlio per evitare che ritorni nel ciclo del padre[m
+[32m+[m[32m        sys.exit(0)[m
+[32m+[m[32m    else:[m
+[32m+[m[32m        # c) Codice eseguito esclusivamente dal processo PADRE[m
+[32m+[m[32m        # Per evitare processi "zombie" e forzare la sincronizzazione,[m
+[32m+[m[32m        # il padre attende attivamente che il figlio termini prima di chiedere un nuovo comando.[m
+[32m+[m[32m        print(f"[PADRE] Figlio avviato (PID: {pid}). Attendo il completamento...")[m
+[32m+[m[41m        [m
+[32m+[m[32m        # os.wait() corrisponde a wait(NULL) in C e restituisce una tupla (pid, status)[m
+[32m+[m[32m        pid_archiviato, stato = os.wait()[m
+[32m+[m[41m        [m
+[32m+[m[32m        print(f"[PADRE] Il figlio {pid_archiviato} ha terminato. Ora puoi inserire un nuovo comando.\n")[m
+[32m+[m[32m    # =====================================================================[m
+[1mdiff --git a/pyfork05.py.save b/pyfork05.py.save[m
+[1mnew file mode 100644[m
+[1mindex 0000000..1b5d0c0[m
+[1m--- /dev/null[m
+[1m+++ b/pyfork05.py.save[m
+[36m@@ -0,0 +1,195 @@[m
+[32m+[m[32mimport os[m
+[32m+[m[32mimport sys[m
+[32m+[m[32mimport time[m
+[32m+[m
+[32m+[m[32mdef esegui_lampeggio(colore, intervallo_secondi):[m
+[32m+[m[32m    """[m
+[32m+[m[32m    Funzione di supporto per simulare il lampeggio (Messaggio a schermo e logica temporale)[m
+[32m+[m[32m    """[m
+[32m+[m[32m    for i in range(10):[m
+[32m+[m[32m        # NOTA PER GLI STUDENTI: Qui inserirete anche il comando fisico per il PIN (es. tramite RPi.GPIO o gpiozero)[m
+[32m+[m[32m        print(f"[FIGLIO] Lampeggio {i + 1}: LED {colore} ACCESO")[m
+[32m+[m[32m        time.sleep(intervallo_secondi)[m
+[32m+[m[41m        [m
+[32m+[m[32m        print(f"[FIGLIO] Lampeggio {i + 1}: LED {colore} SPENTO")[m
+[32m+[m[32m        time.sleep(intervallo_secondi)[m
+[32m+[m
+[32m+[m[32m# =====================================================================[m
+[32m+[m[32m# Main Program[m
+[32m+[m[32m# =====================================================================[m
+[32m+[m
+[32m+[m[32mprint("=== Pannello di Controllo LED tramite Processi ===")[m
+[32m+[m[32mprint("Comandi disponibili:")[m
+[32m+[m[32mprint("  v -> 10 lampeggi LED VERDE  (0.3s)")[m
+[32m+[m[32mimport os[m
+[32m+[m[32mimport sys[m
+[32m+[m[32mimport time[m
+[32m+[m
+[32m+[m[32mdef esegui_lampeggio(colore, intervallo_secondi):[m
+[32m+[m[32m    """[m
+[32m+[m[32m    Funzione di supporto per simulare il lampeggio (Messaggio a schermo e logica temporale)[m
+[32m+[m[32m    """[m
+[32m+[m[32m    for i in range(10):[m
+[32m+[m[32m        # NOTA PER GLI STUDENTI: Qui inserirete anche il comando fisico per il PIN (es. tramite RPi.GPIO o gpiozero)[m
+[32m+[m[32m        print(f"[FIGLIO] Lampeggio {i + 1}: LED {colore} ACCESO")[m
+[32m+[m[32m        time.sleep(intervallo_secondi)[m
+[32m+[m[41m        [m
+[32m+[m[32m        print(f"[FIGLIO] Lampeggio {i + 1}: LED {colore} SPENTO")[m
+[32m+[m[32m        time.sleep(intervallo_secondi)[m
+[32m+[m
+[32m+[m[32m# =====================================================================[m
+[32m+[m[32m# Main Program[m
+[32m+[m[32m# =====================================================================[m
+[32m+[m
+[32m+[m[32mprint("=== Pannello di Controllo LED tramite Processi ===")[m
+[32m+[m[32mprint("Comandi disponibili:")[m
+[32m+[m[32mprint("  v -> 10 lampeggi LED VERDE  (0.3s)")[m
+[32m+[m[32mprint("  r -> 10 lampeggi LED ROSSO  (0.7s)")[m
+[32m+[m[32mprint("  g -> 10 lampeggi LED GIALLO (1.2s)")[m
+[32m+[m[32mprint("  q -> Esci dal programma\n")[m
+[32m+[m
+[32m+[m[32mwhile True:[m
+[32m+[m[32m    try:[m
+[32m+[m[32m        # Legge il comando saltando eventuali spazi o invii residui[m
+[32m+[m[32m        input_utente = input("Inserisci un comando: ").strip()[m
+[32m+[m[32m    except (EOFError, KeyboardInterrupt):[m
+[32m+[m[32m        print("\nChiusura forzata del programma.")[m
+[32m+[m[32m        break[m
+[32m+[m
+[32m+[m[32m    if not input_utente:[m
+[32m+[m[32m        continue[m
+[32m+[m
+[32m+[m[32m    comando = input_utente[m
+[32m+[m
+[32m+[m[32m    # Gestione del comando di chiusura prima di toccare i processi[m
+[32m+[m[32m    if comando == 'q' or comando == 'Q':[m
+[32m+[m[32m        print("Chiusura del programma principale. Arrivederci!")[m
+[32m+[m[32m        break[m
+[32m+[m
+[32m+[m[32m    # Impostazione della variabile in base al comando[m
+[32m+[m[32m    if comando == 'v' or comando == 'V':[m
+[32m+[m[32m        led = 1[m
+[32m+[m[32m        colore_led = "VERDE"[m
+[32m+[m[32m        intervallo = 0.3[m
+[32m+[m[32m    elif comando == 'r' or comando == 'R':[m
+[32m+[m[32m        led = 2[m
+[32m+[m[32m        colore_led = "ROSSO"[m
+[32m+[m[32m        intervallo = 0.7[m
+[32m+[m[32m    elif comando == 'g' or comando == 'G':[m
+[32m+[m[32m        led = 3[m
+[32m+[m[32m        colore_led = "GIALLO"[m
+[32m+[m[32m        intervallo = 1.2[m
+[32m+[m[32m    else:[m
+[32m+[m[32m        print("Comando non valido!")[m
+[32m+[m[32m        continue  # Torna all'inizio del ciclo[m
+[32m+[m
+[32m+[m[32m    # =====================================================================[m
+[32m+[m[32m    # STRUTTURA DELLA FORK - IMPLEMENTATA IN PYTHON[m
+[32m+[m[32m    # =====================================================================[m
+[32m+[m[32m    try:[m
+[32m+[m[32m        # 1 e 2. Chiamata alla funzione fork() per sdoppiare il processo attuale[m
+[32m+[m[32m        pid = os.fork()[m
+[32m+[m[32m    except OSError:[m
+[32m+[m[32m        # a) Errore di sdoppiamento[m
+[32m+[m[32m        print("[ERRORE] Generazione del processo figlio fallita")[m
+[32m+[m[32m        continue[m
+[32m+[m
+[32m+[m[32m    if pid == 0:[m
+[32m+[m[32m        # b) Codice eseguito esclusivamente dal processo FIGLIO[m
+[32m+[m[32m        if led == 1:[m
+[32m+[m[32m            esegui_lampeggio(colore_led, intervallo)[m
+[32m+[m[32m        elif led == 2:[m
+[32m+[m[32m            esegui_lampeggio(colore_led, intervallo)[m
+[32m+[m[32m        elif led == 3:[m
+[32m+[m[32m            esegui_lampeggio(colore_led, intervallo)[m
+[32m+[m[32m        else:[m
+[32m+[m[32m            print(f"[FIGLIO] Errore: LED non riconosciuto.")[m
+[32m+[m[32m            sys.exit(1)[m
+[32m+[m
+[32m+[m[32m        # IMPORTANTE: Termina il processo figlio per evitare che ritorni nel ciclo del padre[m
+[32m+[m[32m        sys.exit(0)[m
+[32m+[m[32m    else:[m
+[32m+[m[32m        # c) Codice eseguito esclusivamente dal processo PADRE[m
+[32m+[m[32m        # Per evitare processi "zombie" e forzare la sincronizzazione,[m
+[32m+[m[32m        # il padre attende attivamente che il figlio termini prima di chiedere un nuovo comando.[m
+[32m+[m[32m        print(f"[PADRE] Figlio avviato (PID: {pid}). Attendo il completamento...")[m
+[32m+[m[41m        [m
+[32m+[m[32m        # os.wait() corrisponde a wait(NULL) in C e restituisce una tupla (pid, status)[m
+[32m+[m[32m        pid_archiviato, stato = os.wait()[m
+[32m+[m[41m        [m
+[32m+[m[32m        print(f"[PADRE] Il figlio {pid_archiviato} ha terminato. Ora puoi inserire un nuovo comando.\n")[m
+[32m+[m[32m    # =====================================================================print("  r -> 10 lampeggi LED ROSSO  (0.7s)")[m
+[32m+[m[32mprint("  g -> 10 lampeggi LED GIALLO (1.2s)")[m
+[32m+[m[32mprint("  q -> Esci dal programma\n")[m
+[32m+[m
+[32m+[m[32mwhile True:[m
+[32m+[m[32m    try:[m
+[32m+[m[32m        # Legge il comando saltando eventuali spazi o invii residui[m
+[32m+[m[32m        input_utente = input("Inserisci un comando: ").strip()[m
+[32m+[m[32m    except (EOFError, KeyboardInterrupt):[m
+[32m+[m[32m        print("\nChiusura forzata del programma.")[m
+[32m+[m[32m        break[m
+[32m+[m
+[32m+[m[32m    if not input_utente:[m
+[32m+[m[32m        continue[m
+[32m+[m
+[32m+[m[32m    comando = input_utente[m
+[32m+[m
+[32m+[m[32m    # Gestione del comando di chiusura prima di toccare i processi[m
+[32m+[m[32m    if comando == 'q' or comando == 'Q':[m
+[32m+[m[32m        print("Chiusura del programma principale. Arrivederci!")[m
+[32m+[m[32m        break[m
+[32m+[m
+[32m+[m[32m    # Impostazione della variabile in base al comando[m
+[32m+[m[32m    if comando == 'v' or comando == 'V':[m
+[32m+[m[32m        led = 1[m
+[32m+[m[32m        colore_led = "VERDE"[m
+[32m+[m[32m        intervallo = 0.3[m
+[32m+[m[32m    elif comando == 'r' or comando == 'R':[m
+[32m+[m[32m        led = 2[m
+[32m+[m[32m        colore_led = "ROSSO"[m
+[32m+[m[32m        intervallo = 0.7[m
+[32m+[m[32m    elif comando == 'g' or comando == 'G':[m
+[32m+[m[32m        led = 3[m
+[32m+[m[32m        colore_led = "GIALLO"[m
+[32m+[m[32m        intervallo = 1.2[m
+[32m+[m[32m    else:[m
+[32m+[m[32m        print("Comando non valido!")[m
+[32m+[m[32m        continue  # Torna all'inizio del ciclo[m
+[32m+[m
+[32m+[m[32m    # =====================================================================[m
+[32m+[m[32m    # STRUTTURA DELLA FORK - IMPLEMENTATA IN PYTHON[m
+[32m+[m[32m    # =====================================================================[m
+[32m+[m[32m    try:[m
+[32m+[m[32m        # 1 e 2. Chiamata alla funzione fork() per sdoppiare il processo attuale[m
+[32m+[m[32m        pid = os.fork()[m
+[32m+[m[32m    except OSError:[m
+[32m+[m[32m        # a) Errore di sdoppiamento[m
+[32m+[m[32m        print("[ERRORE] Generazione del processo figlio fallita")[m
+[32m+[m[32m        continue[m
+[32m+[m
+[32m+[m[32m    if pid == 0:[m
+[32m+[m[32m        # b) Codice eseguito esclusivamente dal processo FIGLIO[m
+[32m+[m[32m        if led == 1:[m
+[32m+[m[32m            esegui_lampeggio(colore_led, intervallo)[m
+[32m+[m[32m        elif led == 2:[m
+[32m+[m[32m            esegui_lampeggio(colore_led, intervallo)[m
+[32m+[m[32m        elif led == 3:[m
+[32m+[m[32m            esegui_lampeggio(colore_led, intervallo)[m
+[32m+[m[32m        else:[m
+[32m+[m[32m            print(f"[FIGLIO] Errore: LED non riconosciuto.")[m
+[32m+[m[32m            sys.exit(1)[m
+[32m+[m
+[32m+[m[32m        # IMPORTANTE: Termina il processo figlio per evitare che ritorni nel ciclo del padre[m
+[32m+[m[32m        sys.exit(0)[m
+[32m+[m[32m    else:[m
+[32m+[m[32m        # c) Codice eseguito esclusivamente dal processo PADRE[m
+[32m+[m[32m        # Per evitare processi "zombie" e forzare la sincronizzazione,[m
+[32m+[m[32m        # il padre attende attivamente che il figlio termini prima di chiedere un nuovo comando.[m
+[32m+[m[32m        print(f"[PADRE] Figlio avviato (PID: {pid}). Attendo il completamento...")[m
+[32m+[m[41m        [m
+[32m+[m[32m        # os.wait() corrisponde a wait(NULL) in C e restituisce una tupla (pid, status)[m
+[32m+[m[32m        pid_archiviato, stato = os.wait()[m
+[32m+[m[41m        [m
+[32m+[m[32m        print(f"[PADRE] Il figlio {pid_archiviato} ha terminato. Ora puoi inserire un nuovo comando.\n")[m
+[32m+[m[32m    # =====================================================================[m
