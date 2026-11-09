@@ -3,7 +3,7 @@
 import os
 
 nome = 'Andrew'
-messaggio = "Hello World dell'esercizio b."
+messaggio = 'Hello World sotto controllo versione con Git.'
 
 print('Hello, World!')
 print(f'Studente: {nome}')
